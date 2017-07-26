@@ -17,6 +17,7 @@ static const struct DCTOAuth2CredentialProperties {
 	__unsafe_unretained NSString *accessToken;
 	__unsafe_unretained NSString *refreshToken;
 	__unsafe_unretained NSString *type;
+    __unsafe_unretained NSString *idToken;
 } DCTOAuth2CredentialProperties;
 
 static const struct DCTOAuth2CredentialProperties DCTOAuth2CredentialProperties = {
@@ -25,7 +26,8 @@ static const struct DCTOAuth2CredentialProperties DCTOAuth2CredentialProperties 
 	.password = @"password",
 	.accessToken = @"accessToken",
 	.refreshToken = @"refreshToken",
-	.type = @"type"
+	.type = @"type",
+    .idToken = @"idToken"
 };
 
 @implementation DCTOAuth2Credential
@@ -37,7 +39,8 @@ static const struct DCTOAuth2CredentialProperties DCTOAuth2CredentialProperties 
 						password:(NSString *)password
 					 accessToken:(NSString *)accessToken
 					refreshToken:(NSString *)refreshToken
-							type:(DCTOAuth2CredentialType)type {
+							type:(DCTOAuth2CredentialType)type
+                         idToken:(NSString *)idToken {
 
 	if (password.length == 0) {
 		if (clientID.length == 0) return nil;
@@ -52,6 +55,7 @@ static const struct DCTOAuth2CredentialProperties DCTOAuth2CredentialProperties 
 	_accessToken = [accessToken copy];
 	_refreshToken = [refreshToken copy];
 	_type = type;
+    _idToken = idToken;
 	return self;
 }
 
@@ -94,13 +98,14 @@ static const struct DCTOAuth2CredentialProperties DCTOAuth2CredentialProperties 
 #pragma mark - NSObject
 
 - (NSString *)description {
-	return [NSString stringWithFormat:@"<%@: %p; %@ = %@; %@ = %@; %@ = %@; %@ = %@>",
+	return [NSString stringWithFormat:@"<%@: %p; %@ = %@; %@ = %@; %@ = %@; %@ = %@; %@ = %@>",
 			NSStringFromClass([self class]),
 			(void *)self,
 			DCTOAuth2CredentialProperties.clientID, self.clientID,
 			DCTOAuth2CredentialProperties.clientSecret, self.clientSecret,
 			DCTOAuth2CredentialProperties.accessToken, self.accessToken,
-			DCTOAuth2CredentialProperties.refreshToken, self.refreshToken];
+			DCTOAuth2CredentialProperties.refreshToken, self.refreshToken,
+            @"idToken", self.idToken];
 }
 
 @end
