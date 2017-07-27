@@ -320,7 +320,7 @@ static const struct DCTOAuth2AccountProperties DCTOAuth2AccountProperties = {
 																	accessToken:accessToken
 																   refreshToken:refreshToken
 																		   type:type
-                                                                            idToken:idToken];
+																		idToken:idToken];
 
 			handler([responses copy], error);
 		}];
@@ -385,7 +385,7 @@ static const struct DCTOAuth2AccountProperties DCTOAuth2AccountProperties = {
 																	accessToken:accessToken
 																   refreshToken:refreshToken
 																		   type:type
-                                                                        idToken:idToken];
+																		idToken:idToken];
 
 			handler(response, error);
 		}];

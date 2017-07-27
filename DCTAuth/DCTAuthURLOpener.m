@@ -25,11 +25,11 @@
 }
 
 - (instancetype)init {
-    self = [super init];
-    if (!self) return nil;
+	self = [super init];
+	if (!self) return nil;
 	_queue = [NSOperationQueue new];
 	_queue.maxConcurrentOperationCount = 1;
-    return self;
+	return self;
 }
 
 - (BOOL)handleURL:(NSURL *)URL {

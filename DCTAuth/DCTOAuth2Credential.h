@@ -33,7 +33,7 @@ typedef NS_ENUM(NSInteger, DCTOAuth2CredentialType) {
 					 accessToken:(NSString *)accessToken
 					refreshToken:(NSString *)refreshToken
 							type:(DCTOAuth2CredentialType)type
-                         idToken:(NSString *) idToken;
+						 idToken:(NSString *)idToken;
 
 /** The client ID. */
 @property (nonatomic, readonly) NSString *clientID;

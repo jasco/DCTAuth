@@ -46,7 +46,7 @@
 	NSString *code = dictionary[DCTOAuth2Keys.code];
 	NSString *accessToken = dictionary[DCTOAuth2Keys.accessToken];
 	NSString *refreshToken = dictionary[DCTOAuth2Keys.refreshToken];
-    NSString *idToken = dictionary[@"id_token"];
+	NSString *idToken = dictionary[@"id_token"];
 
 	DCTOAuth2CredentialType type = DCTOAuth2CredentialTypeParamter;
 	NSString *tokenType = [dictionary[DCTOAuth2Keys.tokenType] lowercaseString];
