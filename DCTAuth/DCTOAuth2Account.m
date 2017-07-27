@@ -91,7 +91,11 @@ static const struct DCTOAuth2AccountProperties DCTOAuth2AccountProperties = {
 - (NSString *)scopeString {
 
 	if (self.scopes.count > 0) {
-		return [self.scopes componentsJoinedByString:@","];
+		if ([self.type isEqualToString:@"google"]) {
+			return [self.scopes componentsJoinedByString:@" "];
+		} else {
+			return [self.scopes componentsJoinedByString:@","];
+		}
 	}
 
 	return nil;
